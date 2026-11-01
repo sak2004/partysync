@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "partysync"
+version = "0.1.0"
+description = "Play one audio stream on two Bluetooth speakers in sync"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "soxr>=0.5",
+    "PyAudioWPatch>=0.2.12; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff", "pyinstaller; sys_platform == 'win32'"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
