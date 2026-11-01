@@ -1,0 +1,28 @@
+#!/bin/sh
+# PartySync commit-msg: first line must be  type(scope): summary
+
+first_line=$(head -n 1 "$1")
+
+case "$first_line" in
+  "Merge "*|"Revert "*|"fixup! "*|"squash! "*) exit 0 ;;
+esac
+
+if printf '%s\n' "$first_line" | grep -Eq '^(feat|fix|docs|test|refactor|perf|build|ci|chore|style|revert)(\([a-z0-9_./-]+\))?!?: .{1,72}$'; then
+  exit 0
+fi
+
+cat >&2 <<'EOF'
+Commit message rejected. The first line must look like:
+
+    type(scope): short summary
+
+  types:  feat fix docs test refactor perf build ci chore style revert
+  scope:  optional, e.g. core, backend, engine, cli, calibration, gui, docs
+  summary: 1 to 72 characters
+
+Examples:
+    feat(core): add OutputChannel with drift control
+    fix(backend): handle Bluetooth disconnect in render callback
+    docs: update status after M2
+EOF
+exit 1

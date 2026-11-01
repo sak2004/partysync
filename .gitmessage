@@ -1,0 +1,10 @@
+
+# <type>(<scope>): <summary, 72 characters max, imperative mood>
+#
+# Why this change and what it does (wrap at about 72 columns):
+#
+# Optional trailer on its own line:   Milestone: M3
+#
+# Types:  feat fix docs test refactor perf build ci chore style revert
+# Scopes: core backend engine cli calibration gui packaging docs status
+# Lines starting with # are ignored.

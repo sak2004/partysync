@@ -1,0 +1,12 @@
+# Normalise line endings in the repo (LF). Git hooks MUST stay LF or they break on Windows.
+* text=auto eol=lf
+.githooks/* text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binary files
+*.png binary
+*.ico binary
+*.wav binary
+*.exe binary

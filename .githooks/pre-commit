@@ -1,0 +1,36 @@
+#!/bin/sh
+# PartySync pre-commit: keeps the README status tables in sync and runs the tests.
+# Quick WIP commit without tests:   SKIP_TESTS=1 git commit -m "wip: ..."
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+# Find a working Python (the Windows Store "python" stub is skipped because it fails the probe).
+PY=""
+for candidate in python python3 py; do
+  if command -v "$candidate" >/dev/null 2>&1 && "$candidate" -c "import sys" >/dev/null 2>&1; then
+    PY="$candidate"
+    break
+  fi
+done
+if [ -z "$PY" ]; then
+  echo "pre-commit: no working Python found, skipping checks." >&2
+  exit 0
+fi
+
+if ! "$PY" scripts/status.py check; then
+  echo "pre-commit: run  $PY scripts/status.py render  then  git add README.md" >&2
+  exit 1
+fi
+
+if [ -z "$SKIP_TESTS" ] && [ -d tests ]; then
+  if "$PY" -c "import pytest" >/dev/null 2>&1; then
+    if ! "$PY" -m pytest -q -x; then
+      echo "pre-commit: tests failed. Fix them, or bypass once with SKIP_TESTS=1." >&2
+      exit 1
+    fi
+  else
+    echo "pre-commit: pytest is not installed, skipping tests (pip install pytest)." >&2
+  fi
+fi
+
+exit 0
