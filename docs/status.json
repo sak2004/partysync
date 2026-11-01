@@ -33,9 +33,9 @@
     {
       "id": "M4",
       "title": "Auto-calibration",
-      "state": "todo",
+      "state": "needs-hw-test",
       "expected": "Calibration state machine and CLI calibrate. Simulated error under 1 ms across the test matrix; clear failure reasons (silent mic, dead speaker, low SNR).",
-      "note": ""
+      "note": "Simulated chirp calibration passes; real microphone and speakers require verification"
     },
     {
       "id": "M5",

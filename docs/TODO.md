@@ -10,7 +10,7 @@ This checklist is a shared, human-readable companion to the authoritative tracke
 
 - [x] M2 — Audio backends: simulated tests complete; Windows hardware verification remains.
 - [x] M3 — Engine and CLI: simulated routing and controls complete; Windows audio verification remains.
-- [ ] M4 — Auto-calibration (later Windows hardware verification)
+- [x] M4 — Auto-calibration: simulated FFT matching and delay compensation complete; microphone verification remains.
 - [ ] M5 — Tkinter GUI (later Windows hardware verification)
 - [ ] M6 — Packaging and hardware documentation
 - [ ] M7 — You run hardware checks H1–H9

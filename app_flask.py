@@ -32,5 +32,8 @@ def create_app() -> Flask:
         if "muted" in data: engine.set_muted(ch,bool(data["muted"]))
         if "mode" in data: engine.set_mode(ch,ChannelMode(data["mode"]))
         return status()
+    @app.post("/api/calibrate")
+    def calibrate():
+        return jsonify(engine.calibrate_simulated().__dict__)
     return app
 if __name__=="__main__": create_app().run(host="0.0.0.0",port=5000)
