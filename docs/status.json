@@ -12,9 +12,9 @@
     {
       "id": "M1",
       "title": "Core DSP (no audio hardware needed)",
-      "state": "todo",
+      "state": "done",
       "expected": "core/: OutputChannel (ring buffer, delay, drift control, crossfade jump, gain), chirp + matched-filter estimator, resampler wrapper, channel-mode mixing, CI workflow. Unit tests green on Linux and Windows.",
-      "note": ""
+      "note": "Core DSP, unit tests, CI workflow, and shared TODO checklist complete"
     },
     {
       "id": "M2",
@@ -67,14 +67,59 @@
     }
   ],
   "hardware_checks": [
-    {"id": "H1", "check": "Both speakers show up as outputs, using the Stereo endpoint (not Hands-Free).", "state": "todo", "note": ""},
-    {"id": "H2", "check": "Source capture works (virtual cable or chosen loopback) and the level meter moves.", "state": "todo", "note": ""},
-    {"id": "H3", "check": "Audio plays on both speakers at once with no feedback loop.", "state": "todo", "note": ""},
-    {"id": "H4", "check": "30 minutes of playback with no dropouts or crackle.", "state": "todo", "note": ""},
-    {"id": "H5", "check": "Calibration succeeds in a quiet room and agrees with by-ear tuning within 10 ms.", "state": "todo", "note": ""},
-    {"id": "H6", "check": "Calibration works with the laptop mic (if it fails, try disabling mic enhancements/echo cancellation).", "state": "todo", "note": ""},
-    {"id": "H7", "check": "Moving the delay slider is click-free.", "state": "todo", "note": ""},
-    {"id": "H8", "check": "Still in sync after 60 minutes (listen with a click track).", "state": "todo", "note": ""},
-    {"id": "H9", "check": "Turning a speaker off and on does not crash the app.", "state": "todo", "note": ""}
+    {
+      "id": "H1",
+      "check": "Both speakers show up as outputs, using the Stereo endpoint (not Hands-Free).",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H2",
+      "check": "Source capture works (virtual cable or chosen loopback) and the level meter moves.",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H3",
+      "check": "Audio plays on both speakers at once with no feedback loop.",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H4",
+      "check": "30 minutes of playback with no dropouts or crackle.",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H5",
+      "check": "Calibration succeeds in a quiet room and agrees with by-ear tuning within 10 ms.",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H6",
+      "check": "Calibration works with the laptop mic (if it fails, try disabling mic enhancements/echo cancellation).",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H7",
+      "check": "Moving the delay slider is click-free.",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H8",
+      "check": "Still in sync after 60 minutes (listen with a click track).",
+      "state": "todo",
+      "note": ""
+    },
+    {
+      "id": "H9",
+      "check": "Turning a speaker off and on does not crash the app.",
+      "state": "todo",
+      "note": ""
+    }
   ]
 }

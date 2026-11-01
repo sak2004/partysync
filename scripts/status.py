@@ -89,8 +89,8 @@ def render_readme(text: str, data: dict) -> str:
     try:
         head, rest = text.split(START, 1)
         _, tail = rest.split(END, 1)
-    except ValueError:
-        raise SystemExit(f"README.md must contain {START} and {END} markers.")
+    except ValueError as err:
+        raise SystemExit(f"README.md must contain {START} and {END} markers.") from err
     return f"{head}{START}\n{render_block(data)}\n{END}{tail}"
 
 
