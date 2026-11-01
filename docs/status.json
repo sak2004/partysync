@@ -19,9 +19,9 @@
     {
       "id": "M2",
       "title": "Audio backends",
-      "state": "todo",
+      "state": "needs-hw-test",
       "expected": "backends/: AudioBackend interface, FakeBackend (virtual clocks, latencies, mic) and WasapiBackend (PyAudioWPatch: device listing, source capture, 2 render streams, mic capture).",
-      "note": ""
+      "note": "Fake backend tests pass; WASAPI adapter needs Windows audio verification"
     },
     {
       "id": "M3",
