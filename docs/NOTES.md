@@ -7,7 +7,8 @@
 
 ## Deviations
 
-- None so far.
+- The web MVP uses Flask as the primary GUI and Streamlit as an optional alternative, replacing the original Tkinter M5 plan at the user's request.
+- The existing src package layout is retained instead of creating a second root-level partysync package.
 
 ## Assumptions to verify on Windows
 
