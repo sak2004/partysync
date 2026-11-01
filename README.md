@@ -51,7 +51,7 @@ This section is generated from `docs/status.json`. Do not edit it by hand.
 |----|-----------|--------|------------------|-------|
 | M0 | Repo scaffold and version control | **DONE** | Git hooks, setup scripts, status tracker, README, AGENTS.md and CODEX_PROMPT.md are in the repo. | Scaffolded before any app code exists. |
 | M1 | Core DSP (no audio hardware needed) | **DONE** | core/: OutputChannel (ring buffer, delay, drift control, crossfade jump, gain), chirp + matched-filter estimator, resampler wrapper, channel-mode mixing, CI workflow. Unit tests green on Linux and Windows. | Core DSP, unit tests, CI workflow, and shared TODO checklist complete |
-| M2 | Audio backends | **TODO** | backends/: AudioBackend interface, FakeBackend (virtual clocks, latencies, mic) and WasapiBackend (PyAudioWPatch: device listing, source capture, 2 render streams, mic capture). | - |
+| M2 | Audio backends | **NEEDS HW TEST** | backends/: AudioBackend interface, FakeBackend (virtual clocks, latencies, mic) and WasapiBackend (PyAudioWPatch: device listing, source capture, 2 render streams, mic capture). | Fake backend tests pass; WASAPI adapter needs Windows audio verification |
 | M3 | Engine and CLI | **TODO** | Engine wiring (source -> per-output resample -> OutputChannel -> render), keep-alive, idle-source handling, CLI devices/run. 10-minute simulated drift test passes. | - |
 | M4 | Auto-calibration | **TODO** | Calibration state machine and CLI calibrate. Simulated error under 1 ms across the test matrix; clear failure reasons (silent mic, dead speaker, low SNR). | - |
 | M5 | Tkinter GUI | **TODO** | Device pickers, per-speaker volume/mute/delay/mode, Start/Stop, Calibrate with progress, level meters, status bar, saved settings. | - |
