@@ -1,6 +1,6 @@
 {
   "project": "PartySync",
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "milestones": [
     {
       "id": "M0",
@@ -26,9 +26,9 @@
     {
       "id": "M3",
       "title": "Engine and CLI",
-      "state": "todo",
+      "state": "needs-hw-test",
       "expected": "Engine wiring (source -> per-output resample -> OutputChannel -> render), keep-alive, idle-source handling, CLI devices/run. 10-minute simulated drift test passes.",
-      "note": ""
+      "note": "Simulated engine and CLI pass; real audio requires Windows endpoint verification"
     },
     {
       "id": "M4",

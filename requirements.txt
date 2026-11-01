@@ -1,3 +1,5 @@
 numpy>=1.26
 soxr>=0.5
+flask>=3.1
+streamlit>=1.40
 PyAudioWPatch>=0.2.12; sys_platform == "win32"

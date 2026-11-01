@@ -9,7 +9,7 @@ This checklist is a shared, human-readable companion to the authoritative tracke
 ## Build roadmap
 
 - [x] M2 — Audio backends: simulated tests complete; Windows hardware verification remains.
-- [ ] M3 — Engine and CLI (later Windows hardware verification)
+- [x] M3 — Engine and CLI: simulated routing and controls complete; Windows audio verification remains.
 - [ ] M4 — Auto-calibration (later Windows hardware verification)
 - [ ] M5 — Tkinter GUI (later Windows hardware verification)
 - [ ] M6 — Packaging and hardware documentation
