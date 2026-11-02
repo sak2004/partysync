@@ -54,8 +54,8 @@ This section is generated from `docs/status.json`. Do not edit it by hand.
 | M2 | Audio backends | **NEEDS HW TEST** | backends/: AudioBackend interface, FakeBackend (virtual clocks, latencies, mic) and WasapiBackend (PyAudioWPatch: device listing, source capture, 2 render streams, mic capture). | Fake backend tests pass; WASAPI adapter needs Windows audio verification |
 | M3 | Engine and CLI | **NEEDS HW TEST** | Engine wiring (source -> per-output resample -> OutputChannel -> render), keep-alive, idle-source handling, CLI devices/run. 10-minute simulated drift test passes. | Simulated engine and CLI pass; real audio requires Windows endpoint verification |
 | M4 | Auto-calibration | **NEEDS HW TEST** | Calibration state machine and CLI calibrate. Simulated error under 1 ms across the test matrix; clear failure reasons (silent mic, dead speaker, low SNR). | Simulated chirp calibration passes; real microphone and speakers require verification |
-| M5 | Tkinter GUI | **TODO** | Device pickers, per-speaker volume/mute/delay/mode, Start/Stop, Calibrate with progress, level meters, status bar, saved settings. | - |
-| M6 | Packaging and hardware docs | **TODO** | PyInstaller build script, docs/HARDWARE_TEST.md, docs/NOTES.md (unverified Windows assumptions), README usage section finished. | - |
+| M5 | Tkinter GUI | **NEEDS HW TEST** | Device pickers, per-speaker volume/mute/delay/mode, Start/Stop, Calibrate with progress, level meters, status bar, saved settings. | Flask web dashboard complete; Tkinter replaced by Flask (deviation in NOTES.md); GUI smoke tests pass; real Windows audio UI needs hardware test |
+| M6 | Packaging and hardware docs | **IN PROGRESS** | PyInstaller build script, docs/HARDWARE_TEST.md, docs/NOTES.md (unverified Windows assumptions), README usage section finished. | - |
 | M7 | Real-hardware verification | **TODO** | You run H1-H9 on the Windows laptop with the Flip 7 and Charge 4 and record results with status.py hw. | Only you can do this one. |
 | M8 | Stretch goals (optional) | **TODO** | N speakers, auto-reconnect on Bluetooth drop, tap-to-nudge sync, saved presets per speaker pair. | - |
 

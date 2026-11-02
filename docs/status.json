@@ -40,14 +40,14 @@
     {
       "id": "M5",
       "title": "Tkinter GUI",
-      "state": "todo",
+      "state": "needs-hw-test",
       "expected": "Device pickers, per-speaker volume/mute/delay/mode, Start/Stop, Calibrate with progress, level meters, status bar, saved settings.",
-      "note": ""
+      "note": "Flask web dashboard complete; Tkinter replaced by Flask (deviation in NOTES.md); GUI smoke tests pass; real Windows audio UI needs hardware test"
     },
     {
       "id": "M6",
       "title": "Packaging and hardware docs",
-      "state": "todo",
+      "state": "in-progress",
       "expected": "PyInstaller build script, docs/HARDWARE_TEST.md, docs/NOTES.md (unverified Windows assumptions), README usage section finished.",
       "note": ""
     },
