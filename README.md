@@ -43,7 +43,7 @@ Limits worth knowing: this is for music. Bluetooth plus buffering adds roughly 1
 This section is generated from `docs/status.json`. Do not edit it by hand.
 
 <!-- STATUS:START -->
-**Progress:** 2 of 9 milestones done, 0 of 9 hardware checks passed (last update 2026-11-02).
+**Progress:** 3 of 9 milestones done, 0 of 9 hardware checks passed (last update 2026-11-02).
 
 ### Milestones
 
@@ -55,7 +55,7 @@ This section is generated from `docs/status.json`. Do not edit it by hand.
 | M3 | Engine and CLI | **NEEDS HW TEST** | Engine wiring (source -> per-output resample -> OutputChannel -> render), keep-alive, idle-source handling, CLI devices/run. 10-minute simulated drift test passes. | Simulated engine and CLI pass; real audio requires Windows endpoint verification |
 | M4 | Auto-calibration | **NEEDS HW TEST** | Calibration state machine and CLI calibrate. Simulated error under 1 ms across the test matrix; clear failure reasons (silent mic, dead speaker, low SNR). | Simulated chirp calibration passes; real microphone and speakers require verification |
 | M5 | Tkinter GUI | **NEEDS HW TEST** | Device pickers, per-speaker volume/mute/delay/mode, Start/Stop, Calibrate with progress, level meters, status bar, saved settings. | Flask web dashboard complete; Tkinter replaced by Flask (deviation in NOTES.md); GUI smoke tests pass; real Windows audio UI needs hardware test |
-| M6 | Packaging and hardware docs | **IN PROGRESS** | PyInstaller build script, docs/HARDWARE_TEST.md, docs/NOTES.md (unverified Windows assumptions), README usage section finished. | - |
+| M6 | Packaging and hardware docs | **DONE** | PyInstaller build script, docs/HARDWARE_TEST.md, docs/NOTES.md (unverified Windows assumptions), README usage section finished. | Build script, HARDWARE_TEST.md, NOTES.md packaging section, README usage section complete. PyInstaller exe not run on real hardware. |
 | M7 | Real-hardware verification | **TODO** | You run H1-H9 on the Windows laptop with the Flip 7 and Charge 4 and record results with status.py hw. | Only you can do this one. |
 | M8 | Stretch goals (optional) | **TODO** | N speakers, auto-reconnect on Bluetooth drop, tap-to-nudge sync, saved presets per speaker pair. | - |
 
@@ -86,6 +86,37 @@ python scripts/status.py check                                  # exits 1 if the
 ```
 
 `needs-hw-test` means the code and simulated tests are finished but the behaviour depends on real Windows audio or the real speakers. Only a hardware check (H1 to H9) moves it forward.
+
+## Quick Start (Windows)
+
+1. Install **Python 3.11+** from [python.org](https://www.python.org/).
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Launch the web dashboard:
+   ```
+   python app_flask.py
+   ```
+   Then open **http://localhost:5000** in a browser.
+4. Or run the pre-built executable (after building with `scripts\build_exe.ps1`):
+   ```
+   dist\PartySync.exe
+   ```
+   Windows Firewall may prompt on the first run — allow access so the dashboard is reachable.
+
+## CLI
+
+```
+python -m partysync devices                    # list audio sources, outputs and mics
+python -m partysync devices --fake             # same, using the simulated backend (no hardware needed)
+python -m partysync run --source S --a A --b B # stream audio to two speakers
+python -m partysync calibrate --source S --a A --b B --mic M --apply
+                                               # auto-calibrate delays and apply them
+```
+
+`S`, `A`, `B`, `M` accept a device index (from `devices`) or a case-insensitive substring
+of the name. `run` prints one status line per second; stop it with **Ctrl+C**.
 
 ## Building it with Codex
 
